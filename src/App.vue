@@ -1,14 +1,22 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import { useChunkPreloadErrorHandling } from './chunk-reload';
+import { ref } from 'vue';
 
-useChunkPreloadErrorHandling();
+const withErrorHandling = ref(false);
+
+// useChunkPreloadErrorHandling();
+// withErrorHandling.value = true;
 </script>
 
 <template>
   <header>
     <nav>
-      <RouterLink to="/todos">Todo List</RouterLink>
+      <RouterLink to="/todos">
+        Todo List <template v-if="withErrorHandling">
+          (with chunk preload error handling)
+        </template>
+      </RouterLink>
     </nav>
   </header>
 
