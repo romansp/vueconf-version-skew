@@ -17,7 +17,7 @@ export function useChunkPreloadErrorHandling() {
   });
 
   function reloadAppAtPath(to: RouteLocation) {
-    const path = joinURL(import.meta.env.VITE_APP_BASE_SUFFIX, to.fullPath);
+    const path = joinURL(import.meta.env.BASE_URL, to.fullPath);
     window.location.href = path;
   }
 }
